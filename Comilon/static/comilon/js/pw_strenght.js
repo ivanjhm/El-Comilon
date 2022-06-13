@@ -21,23 +21,23 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 	$(password1).on('keyup', function(e) {
 		if(VryStrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('vrystrongpass').html("Very Strong! (Awesome, please don't forget your pass now!)");
+			passwordsInfo.removeClass().addClass('vrystrongpass').html("¡Muy Segura! (Impresionante, ¡no olvides tu pase ahora!)");
 		}	
 		else if(StrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('strongpass').html("Strong! (Enter special chars to make even stronger");
+			passwordsInfo.removeClass().addClass('strongpass').html("Segura! (Ingrese caracteres especiales para hacerlo aún más segura)");
 		}	
 		else if(MediumPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('goodpass').html("Good! (Enter uppercase letter to make strong)");
+			passwordsInfo.removeClass().addClass('goodpass').html("Bien! (Ingrese letra mayúscula para hacer segura)");
 		}
 		else if(WeakPass.test(password1.val()))
     	{
-			passwordsInfo.removeClass().addClass('stillweakpass').html("Still Weak! (Enter digits to make good password)");
+			passwordsInfo.removeClass().addClass('stillweakpass').html("¡Aun debil! (Ingrese dígitos para hacer una buena contraseña)");
     	}
 		else
 		{
-			passwordsInfo.removeClass().addClass('weakpass').html("Very Weak! (Must be 5 or more chars)");
+			passwordsInfo.removeClass().addClass('weakpass').html("¡Muy débil! (Debe tener 5 o más caracteres)");
 		}
 	});
 	
@@ -45,9 +45,9 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 		
 		if(password1.val() !== password2.val())
 		{
-			passwordsInfo.removeClass().addClass('weakpass').html("Passwords do not match!");	
+			passwordsInfo.removeClass().addClass('weakpass').html("¡Las contraseñas no coinciden!");	
 		}else{
-			passwordsInfo.removeClass().addClass('goodpass').html("Passwords match!");	
+			passwordsInfo.removeClass().addClass('goodpass').html("¡Las contraseñas coinciden!");	
 		}
 			
 	});

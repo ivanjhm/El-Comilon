@@ -8,3 +8,7 @@ def index6(request):
 
 def inicio(request):
     return render(request,'comilon/login.html')
+
+
+def register(request):
+    return render(request,'comilon/register.html')
