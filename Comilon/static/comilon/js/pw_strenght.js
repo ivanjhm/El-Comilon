@@ -21,7 +21,7 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 	$(password1).on('keyup', function(e) {
 		if(VryStrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('vrystrongpass').html("¡Muy Segura! (Impresionante, ¡no olvides tu pase ahora!)");
+			passwordsInfo.removeClass().addClass('vrystrongpass').html("¡Muy segura! (Impresionante, ¡no olvides tu pase ahora!)");
 		}	
 		else if(StrongPass.test(password1.val()))
 		{
