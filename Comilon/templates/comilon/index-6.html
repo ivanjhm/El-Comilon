@@ -31,8 +31,7 @@
     <link href="{% static 'comilon/css/custom.css' %}" rel="stylesheet">
 </head>
 
-<body>
-                
+<body>          
     <header class="header clearfix element_to_stick">
         <div class="container">
             <div id="logo">
@@ -125,6 +124,15 @@
         </div>
         <!--/carousel-->
 
+        <div class="row">
+            {% if messages %}
+                <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+                </ul>
+            {% endif %}  
+        </div>
         <div class="container margin_30_60">
             <div class="main_title center">
                 <span><em></em></span>

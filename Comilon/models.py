@@ -8,7 +8,7 @@ class Cliente(models.Model):
     correo = models.CharField(max_length=100, verbose_name='correo electrónico')
     
     def __str__(self):
-        return self.nombre
+        return self.nombres
 
 class Rol (models.Model):
     id_Rol = models.AutoField(primary_key=True, verbose_name='Id del Rol')
