@@ -10,25 +10,25 @@
     <title>Inicio de Sesión</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="{% static 'comilon/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'comilon/img/logo_restaurante.png' %}" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'comilon/img/apple-touch-icon-57x57-precomposed.png' %}">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'comilon/img/apple-touch-icon-72x72-precomposed.png' %}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'comilon/img/apple-touch-icon-114x114-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'comilon/img/apple-touch-icon-144x144-precomposed.png' %}">
 
     <!-- GOOGLE WEB FONT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'comilon/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'comilon/css/style.css' %}" rel="stylesheet">
 
     <!-- SPECIFIC CSS -->
-    <link href="css/order-sign_up.css" rel="stylesheet">
+    <link href="{% static 'comilon/css/order-sign_up.css' %}" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="{% static 'comilon/css/custom.css' %}" rel="stylesheet">
     
 </head>
 
@@ -36,44 +36,51 @@
 	
 	<div id="register">
 		<aside>
+			<a href="{% url 'index-6' %}"><img src="{% static 'comilon/img/atras.png' %}" width="30" height="30" alt="" style="margin-right: 400px;"></a>
 			<figure>
-				<a href="index.html"><img src="img/logo_sticky.svg" width="140" height="35" alt=""></a>
+				<a href="{% url 'index-6' %}" style="font-size: 20px;"><img src="{% static 'comilon/img/logo_restaurante.png' %}" width="40" height="40" alt="">
+			    <strong>El Comilón</strong></a>
 			</figure>
 			<div class="access_social">
-					<a href="#0" class="social_bt facebook">Login with Facebook</a>
-					<a href="#0" class="social_bt google">Login with Google</a>
+					<a href="#0" class="social_bt google">Ingresar con Google</a>
 				</div>
-            <div class="divider"><span>Or</span></div>
-			<form autocomplete="off">
+            <div class="divider"><span>O</span></div>
+			<form method="POST" name="forAdmInicio" id="form3" action="{% url 'user' %}">
+				{% csrf_token %}
 				<div class="form-group">
-					<input class="form-control" type="email" placeholder="Email">
+					<input class="form-control" type="email" placeholder="Correo" name="email" id="email">
 					<i class="icon_mail_alt"></i>
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="password" id="password" placeholder="Password">
+					<input class="form-control" type="password" id="password" name="password" placeholder="Contraseña">
 					<i class="icon_lock_alt"></i>
 				</div>
 				<div class="clearfix add_bottom_15">
-					<div class="checkboxes float-start">
-						<label class="container_check">Remember me
-						  <input type="checkbox">
-						  <span class="checkmark"></span>
-						</label>
-					</div>
-					<div class="float-end"><a id="forgot" href="#0">Forgot Password?</a></div>
+					<div class="float-end"><a id="forgot" href="#0">¿Olvidó su contraseña?</a></div>
 				</div>
-				<a href="#0" class="btn_1 gradient full-width">Login Now!</a>
-				<div class="text-center mt-2"><small>Don't have an acccount? <strong><a href="register.html">Sign Up</a></strong></small></div>
+				{% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+				<div class="row">
+					<center><input type="submit" name="entrar" value="Ingresar" id="entrar" class="submit"
+					  style="border-radius: 5px; color: white; background-color: #ED5154; border-color:#ED5154; margin-top: 40px;"
+					  ></center>
+				  </div>
+				<div class="text-center mt-2"><small>¿No tienes cuenta? <strong><a href="{% url 'register' %}">Registrate</a></strong></small></div>
 			</form>
-			<div class="copy">© 2020 FooYes</div>
+			<div class="copy">© 2022 El Comilón</div>
 		</aside>
 	</div>
 	<!-- /login -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="js/common_scripts.min.js"></script>
-    <script src="js/common_func.js"></script>
-    <script src="assets/validate.js"></script>
+    <script src="{% static 'comilon/js/common_scripts.min.js' %}"></script>
+    <script src="{% static 'comilon/js/common_func.js' %}"></script>
+    <script src="{% static 'comilon/assets/validate.js' %}"></script>
   
 </body>
 </html>

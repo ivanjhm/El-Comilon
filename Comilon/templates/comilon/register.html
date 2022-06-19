@@ -10,7 +10,7 @@
     <title>El Comilón - Registro </title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="{% static 'comilon/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'comilon/img/logo_restaurante.png' %}" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'comilon/img/image/x-icon' %}" href="{% static 'comilon/img/apple-touch-icon-57x57-precomposed.png' %}">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="image/x-icon" sizes="72x72" href="{% static 'comilon/img/apple-touch-icon-72x72-precomposed.png' %}">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'comilon/img/apple-touch-icon-114x114-precomposed.png' %}">
@@ -37,10 +37,10 @@
 	<div id="register">
 		<aside>
 			<figure>
-				<a href="index.html"><img src="{% static 'comilon/img/logo_sticky.svg' %}" width="140" height="35" alt=""></a>
+				<a href="{% url 'index-6' %}" style="font-size: 20px;"><img src="{% static 'comilon/img/logo_restaurante.png' %}" width="40" height="40" alt="">
+					<strong>El Comilón</strong></a>
 			</figure>
 			<div class="access_social">
-					<a href="#0" class="social_bt facebook">Registrate con Facebook</a>
 					<a href="#0" class="social_bt google">Registrate con Google</a>
 				</div>
             <div class="divider"><span>O</span></div>
@@ -76,12 +76,19 @@
 					<i class="icon_lock_alt"></i>
 				</div>
 				<div id="pass-info" class="clearfix"></div>
+				{% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
 				<div class="row">
 					<center><input type="submit" name="registro" value="Registrate ahora" id="reg" class="btn_1 gradient full-width"
 						style="color: white;">
 					</center>
 				  </div>
-				<div class="text-center mt-2"><small>¿Ya tienes una cuenta? <strong><a href="#0">Registrarse</a></strong></small></div>
+				<div class="text-center mt-2"><small>¿Ya tienes una cuenta? <strong><a href="{% url 'inicio' %}">Inicia sesión</a></strong></small></div>
 			</form>
 			<div class="copy">© 2022 El comilón</div>
 		</aside>
