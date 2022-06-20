@@ -31,7 +31,6 @@ def inicio_sesion(request):
     cor = request.POST['email']
     cont = request.POST['password']
 
-
     try:
         x = Usuario.objects.get(correo = cor, clave = cont)
         rol2 = Rol.objects.get(nombre = "Cliente")

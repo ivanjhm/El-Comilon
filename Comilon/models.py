@@ -30,7 +30,7 @@ class Produto(models.Model):
     id_produto = models.AutoField(primary_key=True, verbose_name='Id del produto')
     nombProduc = models.CharField(max_length=50, verbose_name='Nombre del Producto')
     descripcion = models.CharField(max_length=100, verbose_name='Descripcion del Producto')
-    imgProd = models.ImageField(upload_to="Apoderado", null=True, blank=True, verbose_name='Imagen del Producto')
+    imgProd = models.ImageField(upload_to="Producto", null=True, blank=True, verbose_name='Imagen del Producto')
     precio = models.IntegerField(verbose_name='Precio del Producto')
     Empresa = models.CharField(verbose_name='Quien preparó el Producto', max_length=100)
 
