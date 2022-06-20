@@ -1,12 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Usuario, Rol, Cliente
+from .models import Produto, Usuario, Rol, Cliente
 from django.contrib import messages
 from django.contrib.auth import logout
 
 # Create your views here.
-
-
-
 
 def index6(request):
     return render(request,'comilon/index-6.html')
