@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index6, mostar, reg_produc, inicio, registro, user, admin, inicio_sesion, register, registrando,menu, plato
+from .views import index6, mostar, order, reg_produc, inicio, admin, inicio_sesion, register, registrando,menu, plato
 
 urlpatterns = [
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('plato/',plato, name="plato"),
     path('reg_produc/',reg_produc, name="reg_produc"),
     path('mostar/',mostar, name="mostar"),
+    path('order/',order, name="order"),
 ]

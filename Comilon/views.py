@@ -21,11 +21,13 @@ def admin(request):
     return render(request,'comilon/index.html')
 
 def menu(request):
-    return render(request,'comilon/grid-listing-masonry.html')
+    return render(request,'comilon/catalogo.html')
 
 def plato (request):
     return render(request,'comilon/detail-restaurant.html')
 
+def order(request):
+    return render(request,'comilon/order.html')
 
 def inicio_sesion(request):
     cor = request.POST['email']
@@ -73,7 +75,7 @@ def registrando(request):
 def mostar(request):
     pro = Produto.objects.all()
     contexto ={"plato": pro}
-    return render(request,'comilon/grid-listing-masonry.html',contexto)
+    return render(request,'comilon/catalogo.html',contexto)
 
 
 def reg_produc(request):
