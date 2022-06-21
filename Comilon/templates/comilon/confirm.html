@@ -1,15 +1,15 @@
-<!DOCTYPE html>
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="FooYes - Quality delivery or takeaway food">
-	<meta name="author" content="Ansonika">
-	<title>Menú - El Comilón</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FooYes - Quality delivery or takeaway food">
+    <meta name="author" content="Ansonika">
+    <title>El comilon - confirmado</title>
 
-	<!-- Favicons-->
+    <!-- Favicons-->
 	<link rel="shortcut icon" href="{% static 'comilon/img/logo_restaurante.png' %}" type="image/x-icon">
 	<link rel="apple-touch-icon" type="image/x-icon"
 		href="{% static 'comilon/img/apple-touch-icon-57x57-precomposed.png' %}">
@@ -20,74 +20,24 @@
 	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
 		href="{% static 'comilon/img/apple-touch-icon-144x144-precomposed.png' %}">
 
-	<!-- GOOGLE WEB FONT -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-		rel="stylesheet">
+    <!-- GOOGLE WEB FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-	<!-- BASE CSS -->
+    <!-- BASE CSS -->
 	<link href="{% static 'comilon/css/bootstrap.min.css' %}" rel="stylesheet">
 	<link href="{% static 'comilon/css/style.css' %}" rel="stylesheet">
 
-	<!-- SPECIFIC CSS -->
-	<link href="{% static 'comilon/css/listing.css' %}" rel="stylesheet">
+    <!-- SPECIFIC CSS -->
+	<link href="{% static 'comilon/css/order-sign_up.css' %}" rel="stylesheet">
 
-	<!-- YOUR CUSTOM CSS -->
+    <!-- YOUR CUSTOM CSS -->
 	<link href="{% static 'comilon/css/custom.css' %}" rel="stylesheet">
-
-	<script type="text/javascript">
-		var user = '{{request.user}}'
-
-		function getToken(name) {
-			var cookieValue = null;
-			if (document.cookie && document.cookie !== '') {
-				var cookies = document.cookie.split(';');
-				for (var i = 0; i < cookies.length; i++) {
-					var cookie = cookies[i].trim();
-					// Does this cookie string begin with the name we want?
-					if (cookie.substring(0, name.length + 1) === (name + '=')) {
-						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-						break;
-					}
-				}
-			}
-			return cookieValue;
-		}
-		var csrftoken = getToken('csrftoken')
-
-		function getCookie(name) {
-			// Split cookie string and get all individual name=value pairs in an array
-			var cookieArr = document.cookie.split(";");
-
-			// Loop through the array elements
-			for (var i = 0; i < cookieArr.length; i++) {
-				var cookiePair = cookieArr[i].split("=");
-
-				/* Removing whitespace at the beginning of the cookie name
-				and compare it with the given string */
-				if (name == cookiePair[0].trim()) {
-					// Decode the cookie value and return
-					return decodeURIComponent(cookiePair[1]);
-				}
-			}
-
-			// Return null if not found
-			return null;
-		}
-		var cart = JSON.parse(getCookie('cart'))
-
-		if (cart == undefined) {
-			cart = {}
-			console.log('Cart Created!', cart)
-			document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
-		}
-		console.log('Cart:', cart)
-
-	</script>
 
 </head>
 
 <body>
+				
 	<header class="header_in clearfix">
 		<div class="container">
 			<div id="logo">
@@ -98,14 +48,11 @@
 			</div>
 			<ul id="top_menu">
 				<li><a href="#sign-in-dialog" id="sign-in" class="login">Sign In</a></li>
-				<li><a href="{% url 'order' %}">
-						<img id="cart-icon" src="{% static 'images/cart.png' %}" style="width: 30px;">
-					</a>
-				</li>
 			</ul>
 			<!-- /top_menu -->
 			<div class="layer"></div><!-- Opacity Mask Menu Mobile -->
 			<a href="#0" class="open_close">
+				<i class="icon_menu"></i><span>Menu</span>
 				<i class="icon_menu"></i><span>Menu</span>
 			</a>
 			<nav class="main-menu">
@@ -119,16 +66,43 @@
 		</div>
 	</header>
 	<!-- /header -->
-
-
-
-	<div class="container">
-		<br>
-		{% block content %}
-
-
-		{% endblock content %}
-	</div>
+	
+	<main class="bg_gray">
+		
+		<div class="container margin_60_40">
+		    <div class="row justify-content-center">
+		        <div class="col-lg-4">
+		        	<div class="box_order_form">
+		                <div class="head text-center">
+		                    <h3>Restaurant El Comilon</h3>
+							Calle Nueva #1660, Huechuraba 
+		                </div>
+		                <!-- /head -->
+		                <div class="main">
+		                	<div id="confirm">
+								<div class="icon icon--order-success svg add_bottom_15">
+									<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+										<g fill="none" stroke="#8EC343" stroke-width="2">
+											<circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+											<path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+										</g>
+									</svg>
+								</div>
+								<h3>Orden confirmada!</h3>
+								<p>gracias por preferirnos.</p>
+							</div>
+		                </div>
+		            </div>
+		            <!-- /box_booking -->
+		        </div>
+		        <!-- /col -->
+		    </div>
+		    <!-- /row -->
+		</div>
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
 
 	<footer>
 		<div class="wave footer"></div>
@@ -296,33 +270,13 @@
 		<!--form -->
 	</div>
 	<!-- /Sign In Modal -->
-
+	
+	
+	
 	<!-- COMMON SCRIPTS -->
-	<script src="js/common_scripts.min.js"></script>
-	<script src="js/common_func.js"></script>
-	<script src="assets/validate.js"></script>
+    <script src="js/common_scripts.min.js"></script>
+    <script src="js/common_func.js"></script>
+    <script src="assets/validate.js"></script>
 
-	<!-- SPECIFIC SCRIPTS -->
-	<script src="js/sticky_sidebar.min.js"></script>
-	<script src="js/specific_listing.js"></script>
-	<script src="js/isotope.min.js"></script>
-	<script>
-		$(window).on("load", function () {
-			var $container = $('.isotope-wrapper');
-			$container.isotope({ itemSelector: '.isotope-item', layoutMode: 'masonry' });
-		});
-		$('.type_delivery').on('click', 'input', 'change', function () {
-			var selector = $(this).attr('data-filter');
-			$('.isotope-wrapper').isotope({ filter: selector });
-		});
-	</script>
-
-	<!-- Map -->
-	<script src="js/main_map_scripts.js"></script>
-	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
-
-	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 </body>
-
 </html>
