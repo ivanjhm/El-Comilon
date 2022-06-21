@@ -1,0 +1,188 @@
+{% extends 'comilon/main.html' %}
+{% load static %}
+{% block content %}
+<main>
+	<div class="page_header element_to_stick">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12">
+					<div class="search_bar_list">
+						<input type="text" class="form-control" placeholder="Ejempo: Lasaña">
+						<button type="submit"><i class="icon_search"></i></button>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+	</div>
+	<!-- /page_header -->
+	<div class="filters_full clearfix add_bottom_15">
+		<div class="container">
+			<div class="type_delivery">
+				<ul class="clearfix">
+					<li>
+						<label class="container_radio">Todos
+							<input type="radio" name="type_d" value="all" id="all" checked data-filter="*"
+								class="selected">
+							<span class="checkmark"></span>
+						</label>
+					</li>
+					<li>
+						<label class="container_radio">Con Envío
+							<input type="radio" name="type_d" value="delivery" id="delivery" data-filter=".delivery">
+							<span class="checkmark"></span>
+						</label>
+					</li>
+					<li>
+						<label class="container_radio">Para Retirar
+							<input type="radio" name="type_d" value="takeway" id="takeaway" data-filter=".takeaway">
+							<span class="checkmark"></span>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<!-- /type_delivery -->
+			<a class="btn_map mobile btn_filters" data-bs-toggle="collapse" href="#collapseMap"><i
+					class="icon_pin_alt"></i></a>
+			<a href="#collapseFilters" data-bs-toggle="collapse" class="btn_filters"><i
+					class="icon_adjust-vert"></i><span>Filtros</span></a>
+		</div>
+	</div>
+	<!-- /filters_full -->
+	<div class="collapse" id="collapseMap">
+		<div id="map" class="map"></div>
+	</div>
+	<!-- /Map -->
+
+	<div class="collapse filters_2" id="collapseFilters">
+		<div class="container margin_30_20">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="filter_type">
+						<h6>Categorias</h6>
+						<ul>
+							<li>
+								<label class="container_check">Pizza - Italian <small>12</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_check">Japanese - Sushi <small>24</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_check">Burghers <small>23</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_check">Vegetarian <small>11</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="filter_type">
+						<h6>Rating</h6>
+						<ul>
+							<li>
+								<label class="container_check">Superb 9+ <small>06</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_check">Very Good 8+ <small>12</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_check">Good 7+ <small>17</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_check">Pleasant 6+ <small>43</small>
+									<input type="checkbox">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="filter_type">
+						<h6>Distance</h6>
+						<div class="distance"> Radius around selected destination <span></span> km</div>
+						<div class="mb-3
+						"><input type="range" min="10" max="100" step="10" value="30" data-orientation="horizontal"></div>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+	</div>
+	<!-- /filters -->
+	<div class="container margin_30_20">
+
+		<div class="promo mb_30">
+			<h3>¡Envío gratis en el primer pedido!</h3>
+			<p>Registrate y consigue tu descuento</p>
+			<i class="icon-food_icon_delivery"></i>
+		</div>
+		<!-- /promo -->
+
+		<div class="row isotope-wrapper">
+
+			{% for product in producto %}
+			<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 isotope-item delivery">
+				<div class="strip">
+					<figure>
+						<span class="ribbon off">15% off</span>
+						{% if product.imgProd %}
+						<img src="{{ product.imgProd.url }}" class="img-fluid lazy" alt="">
+						{% endif %}
+						<a class="strip_info">
+							<div class="item_title">
+								<h3>{{ product.nombProduc }}</h3>
+								<small>${{ product.precio }}</small>
+							</div>
+						</a>
+					</figure>
+					<ul>
+						<li><span class="take yes">retiro</span> <span class="deliv yes">Delivery</span></li>
+						<li>
+							<div class="score"><strong>8.9</strong></div>
+						</li>
+					</ul>
+					<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart" style="margin-top: 20px;">agregar a la compra</button>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
+		<!-- /strip row -->
+		<div class="pagination_fg">
+			<a href="#">&laquo;</a>
+			<a href="#" class="active">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">&raquo;</a>
+		</div>
+	</div>
+	<!-- /container -->
+</main>
+<!-- /main -->
+
+{% endblock content %}
