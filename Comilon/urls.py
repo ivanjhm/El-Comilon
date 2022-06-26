@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import confirm, order, index6, reg_produc, inicio, admin, inicio_sesion, register, registrando,menu, store
+from .views import mapa, confirm, order, index6, reg_produc, inicio, admin, inicio_sesion, register, registrando,menu, store
 
 urlpatterns = [
 
@@ -14,4 +14,5 @@ urlpatterns = [
     path('store/', store, name="store"),
     path('order/', order, name="order"),
     path('confirm/', confirm, name="confirm"),
+    path('mapa/', mapa, name="mapa"),
 ]

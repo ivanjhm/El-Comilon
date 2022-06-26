@@ -91,3 +91,6 @@ def store(request):
 
 def confirm(request):
     return render(request,'comilon/confirm.html')
+
+def mapa(request):
+    return render(request,'comilon/mapa.html')
